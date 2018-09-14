@@ -10,6 +10,6 @@ resource "google_compute_firewall" "allow-external" {
     protocol = "udp"
   }
 
-  source_range = "${var.external_source_range}"
+  source_ranges = "${var.external_source_range}"
 }
 
