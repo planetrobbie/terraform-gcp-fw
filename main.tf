@@ -39,6 +39,7 @@ resource "google_compute_firewall" "allow-inbound-xldeploy" {
 
 resource "google_compute_firewall" "allow-inbound-consul-dns" {
   name    = "allow-inbound-consul-dns"
+  description = "allow DNS traffic to Consul nodes"
   network = "default"
 
   allow {
