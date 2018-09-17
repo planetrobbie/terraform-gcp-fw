@@ -25,3 +25,14 @@ resource "google_compute_firewall" "allow-inbound-ptfe-admin" {
   target_tags = ["ptfe"]
 }
 
+resource "google_compute_firewall" "allow-inbound-xldeploy" {
+  name    = "allow-inbound-xldeploy"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports = ["4516"]
+  }
+ 
+  target_tags = ["xldeploy"]
+}
