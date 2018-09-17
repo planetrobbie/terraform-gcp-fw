@@ -36,3 +36,20 @@ resource "google_compute_firewall" "allow-inbound-xldeploy" {
  
   target_tags = ["xldeploy"]
 }
+
+resource "google_compute_firewall" "allow-inbound-consul-dns" {
+  name    = "allow-inbound-consul-dns"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports = ["8600"]
+  }
+
+  allow {
+    protocol = "udp"
+    ports = ["8600"]
+  }
+
+  target_tags = ["consul"]
+}
