@@ -13,3 +13,15 @@ resource "google_compute_firewall" "allow-external" {
   source_ranges = ["${var.external_source_ranges}"]
 }
 
+resource "google_compute_firewall" "allow-inbound-ptfe-admin" {
+  name    = "allow-inbound-ptfe-admin"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports = ["8800"]
+  }
+ 
+  target_tags = ["ptfe"]
+}
+
