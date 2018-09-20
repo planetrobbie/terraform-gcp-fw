@@ -19,7 +19,7 @@ resource "google_compute_firewall" "allow-inbound-vault" {
 
   allow {
     protocol = "tcp"
-    ports = ["8200"]
+    ports = ["8200", "80"]
   }
  
   target_tags = ["vault"]
