@@ -66,22 +66,3 @@ resource "google_compute_firewall" "allow-inbound-consul-dns" {
 
   target_tags = ["consul"]
 }
-
-resource "google_compute_firewall" "allow-consul-2-consul" {
-  name    = "allow-consul-2-consul"
-  description = "allow consul traffic"
-  network = "default"
-
-  allow {
-    protocol = "tcp"
-    ports = ["8300", "8500"]
-  }
-
-  allow {
-    protocol = "udp"
-    ports = ["8301", "8302"]
-  }
-
-  source_tags = ["consul"]
-  target_tags = ["consul"]
-}
