@@ -23,6 +23,7 @@ resource "google_compute_firewall" "allow-inbound-vault" {
   }
  
   target_tags = ["vault"]
+  source_ranges = "${var.external_source_ranges}"
 }
 
 resource "google_compute_firewall" "allow-inbound-ptfe-admin" {
