@@ -13,13 +13,26 @@ resource "google_compute_firewall" "allow-external" {
   source_ranges = "${var.external_source_ranges}"
 }
 
+
+resource "google_compute_firewall" "allow-inbound-nginx" {
+  name    = "allow-inbound-nginx"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports = [443"]
+  }
+ 
+  target_tags = ["vault"]
+}
+
 resource "google_compute_firewall" "allow-inbound-vault" {
   name    = "allow-inbound-vault"
   network = "default"
 
   allow {
     protocol = "tcp"
-    ports = ["8200", "443"]
+    ports = ["8200"]
   }
  
   target_tags = ["vault"]
