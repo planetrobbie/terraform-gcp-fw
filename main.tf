@@ -20,7 +20,7 @@ resource "google_compute_firewall" "allow-inbound-nginx" {
 
   allow {
     protocol = "tcp"
-    ports = [443"]
+    ports = ["443"]
   }
  
   target_tags = ["vault"]
